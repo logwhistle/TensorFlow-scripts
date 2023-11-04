@@ -57,7 +57,8 @@ command+shift+p输入Select Interpreter选择对应编译器
 位置```./ckpt/load_change_use.py```  
 ##### (1) 利用```load_and_change```函数，加载并打印图中变量  
 ##### (2) 利用```load_and_change```函数，并设置```need_change=True```可改变部分变量并重新保存。代码中事例的背景是将输入维度从32维扩展为40维时，对参数```models/weight```的输入补充了8维。事例采用glort_uniform方式，是tensorflow中常用的初始化变量的方式，此方式是在修改网络结构后实现快速热启动的方法。  
-##### (3) 利用```load_and_reuse```函数，可将checkpoint图中变量加载，并重新构建新的图病继续训练。适用于加载已有模型继续训练，也可以灵活实现热启动。
+##### (3) 利用```load_and_reuse```函数，可将checkpoint图中变量加载，并重新构建新的图病继续训练。适用于加载已有模型继续训练，也可以灵活实现热启动。  
+#### 生成文件位置为```./ckpt/checkpoint```以及```./ckpt/new_checkpoint```  
 
 
 ## 三、saved_model的生成、加载与使用  
@@ -71,3 +72,12 @@ command+shift+p输入Select Interpreter选择对应编译器
 位置```./saved_model/load.py```  
 ##### (1) ```print(meta_graph.signature_def["signature"].outputs)```直接打印  
 ##### (2) ```tf.train.write_graph(sess.graph_def, pb_file_path, 'print.pbtxt')```保存为pbtxt文件，直接查看  
+#### 生成文件位置为```./saved_model/savedmodel``` 
+
+
+## 四、tfrecord文件的生成与使用  
+### 1. tfrecord的生成  
+位置```./tfrecord/generate.py```  
+### 2. tfrecord的加载与打印 
+位置```./tfrecord/load.py```  
+#### 生成文件位置为```./tfrecord/my.tfrecords```  
